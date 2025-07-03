@@ -11,6 +11,7 @@ def filter_by_email(users, email_substring):
     return [user for user in users if email_substring.lower() in user.get("email", "").lower()]
 
 if __name__=="__main__":
+
     users = [
         {"name": "Alice", "email": "alice@gmail.com", "age": 35},
         {"name": "Bob", "email": "bob@yahoo.com", "age": 26},
