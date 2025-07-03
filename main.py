@@ -1,4 +1,5 @@
 def filter_by_age(users, min_age):
+    """Returns a list of users whose age is greater or equal to min_age"""
     return [user for user in users if user.get("age", 0) >= min_age]
 
 def filter_by_email(users, email_substring):
@@ -11,10 +12,14 @@ def filter_by_email(users, email_substring):
 
 if __name__=="__main__":
     users = [
-        {"name": "Alice", "email": "alice@gmail.com"},
-        {"name": "Bob", "email": "bob@gmail.com"},
-        {"name": "dylan", "email": "dylan@gmail.com"},
+        {"name": "Alice", "email": "alice@gmail.com", "age": 35},
+        {"name": "Bob", "email": "bob@yahoo.com", "age": 26},
+        {"name": "dylan", "email": "dylan@gmail.com", "age":17}
     ]
+    print("Users age 20 and above: ")
+    result_age = filter_by_age(users, 20)
+    print(result_age)
 
-    result = filter_by_email(users,"gmail")
-    print(result)
+    print("Users with email containing 'gmail':")
+    result_email = filter_by_email(users,"gmail")
+    print(result_email)
