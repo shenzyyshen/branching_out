@@ -19,15 +19,15 @@ if __name__=="__main__":
     users = [
         {"name": "Alice", "email": "alice@gmail.com", "age": 24},
         {"name": "Bob", "email": "bob@gmail.com", "age": 19},
-        {"name": "dylan", "email": "dylan@gmail.com", "age":49},
+        {"name": "dylan", "email": "dylan@yahoo.com", "age":49},
     ]
 
 """filter by age"""
-print("users age 20 and above: ")
+print("Users age 20 and above: ")
 result_age = filter_by_age(users, 20)
 print(result_age)
 
 """filter by email"""
-print("Users with email contain 'gmail': ")
+print("Users with email containing 'gmail': ")
 result_email = filter_by_email(users,"gmail")
 print(result_email)

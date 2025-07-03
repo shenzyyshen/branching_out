@@ -1,4 +1,6 @@
 def filter_by_age(users, min_age):
+
+    """Return a list of users whose age is greater or equal to min_age"""
     return [user for user in users if user.get("age", 0) >= min_age]
 
 def filter_by_email(users, email_substring):
