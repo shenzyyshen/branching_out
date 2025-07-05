@@ -1,24 +1,32 @@
-def filter_by_age(users, min_age):
+from filter_users import load_users, filter_users_by_name, filter_users_by_age, filter_by_email
 
-    """Return a list of users whose age is greater or equal to min_age"""
-    return [user for user in users if user.get("age", 0) >= min_age]
+if __name__ == "__main__":
+    users = load_users()
 
-def filter_by_email(users, email_substring):
-    """
-    Returns users whose email contains the given substring
-    -users(list of dict) -email_substring (str)
-    returns- -list """
+    filter_option = input("What would you like to filter by? (name, age, or email): ").strip().lower()
 
-    return [user for user in users if email_substring.lower() in user.get("email", "").lower()]
+    if filter_option == "name":
+        name = input("Enter name to search: ").strip()
+        results = filter_users_by_name(users, name)
 
-if __name__=="__main__":
+    elif filter_option == "age":
+        try:
+            min_age = int(input("Enter minimum age: ").strip())
+            results = filter_users_by_age(users, min_age)
+        except ValueError:
+            print("Invalid age. Please enter a number.")
+            result = []
+    elif filter_option == "email":
+        email_substring = input("Enter part of the email to search for : ").strip()
+        results = []
+    else:
+        print("Unsupported filter options.")
+        results = []
+
+        if results:
+            for user in results:
+                print(user)
+        else:
+            print("no users found.")
 
 
-    users = [
-        {"name": "Alice", "email": "alice@gmail.com"},
-        {"name": "Bob", "email": "bob@gmail.com"},
-        {"name": "dylan", "email": "dylan@gmail.com"},
-    ]
-
-    result = filter_by_email(users,"gmail")
-    print(result)
